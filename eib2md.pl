@@ -1,18 +1,18 @@
-﻿# eib形式の漢点字データをUnicode点字のデータに変換します。
+﻿# eib形式の漢点字データをUnicode点字のmarkdownテキストファイルに変換します。
 # 実行にはConvert-Brailleモジュールが必要です。
 # 使い方:
-# perl eib2utf8.pl ファイル名
-# .eibの拡張子は無しで、その前のファイル名だけを指定します。
-# 指定したファイル名に、.utf8.txtをつけたファイル名で出力します。
+# perl eib2md.pl input.eib
+# 拡張子.eibもつけます
+# 指定したファイル名に、.eib.mdをつけたファイル名で出力します。
 
   use Convert::Braille;
   use utf8;
 
   $filename = $ARGV[0];
   die "No input filename.\n" unless $filename;
-  $in = $filename . ".eib";
+  $in = $filename;
 
-  $out = $filename . ".utf8.txt";
+  $out = $filename . ".eib.md";
 
   open(IN, "< $in");
   open(OUT, "> $out");
